@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://74b1usj6vwdx"
+path="res://.godot/imported/chunga_small_seizures_pizza_place.obj-4b6b5024c7afcbff965958cb305aafdd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/chunga_small_seizures_pizza_place.obj-4b6b5024c7afcbff965958cb305aafdd.mesh"]
+
+source_file="res://assets/chunga_small_seizures_pizza_place.obj"
+dest_files=["res://.godot/imported/chunga_small_seizures_pizza_place.obj-4b6b5024c7afcbff965958cb305aafdd.mesh", "res://.godot/imported/chunga_small_seizures_pizza_place.obj-4b6b5024c7afcbff965958cb305aafdd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,453 @@
+[gd_scene load_steps=24 format=3 uid="uid://dlsauub0q26d8"]
+
+[ext_resource type="Script" path="res://rex.gd" id="1_i0xk2"]
+[ext_resource type="Script" path="res://SpringArm3D.gd" id="2_xgx5g"]
+[ext_resource type="Material" uid="uid://ruljtmxl1aa7" path="res://assets/rex_fur.tres" id="4_e62um"]
+[ext_resource type="Texture2D" uid="uid://ek4y6f8ij2o0" path="res://assets/head.png" id="4_m6lky"]
+[ext_resource type="Texture2D" uid="uid://dxjggkci10rdj" path="res://assets/face.png" id="5_iko4g"]
+[ext_resource type="Theme" path="res://resources/rex.tres" id="6_15a5g"]
+[ext_resource type="ArrayMesh" uid="uid://c8jcpyiau6kx2" path="res://assets/mag.obj" id="6_f4l8k"]
+[ext_resource type="Script" path="res://Upgrade.gd" id="7_57r7o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_puhrx"]
+radius = 0.15
+height = 0.65
+
+[sub_resource type="SphereMesh" id="SphereMesh_rdqgt"]
+material = ExtResource("4_e62um")
+radius = 0.1
+height = 0.525
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2eur"]
+albedo_color = Color(0.686275, 0.466667, 0.266667, 1)
+albedo_texture = ExtResource("4_m6lky")
+
+[sub_resource type="SphereMesh" id="SphereMesh_c5imd"]
+material = SubResource("StandardMaterial3D_h2eur")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcjl2"]
+albedo_color = Color(0.686275, 0.466667, 0.266667, 1)
+albedo_texture = ExtResource("5_iko4g")
+
+[sub_resource type="SphereMesh" id="SphereMesh_7407t"]
+material = SubResource("StandardMaterial3D_pcjl2")
+radius = 0.06
+height = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_unlw8"]
+material = ExtResource("4_e62um")
+radius = 0.06
+height = 0.07
+
+[sub_resource type="SphereMesh" id="SphereMesh_q3ruf"]
+material = ExtResource("4_e62um")
+radius = 0.04
+height = 0.25
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_043ak"]
+material = ExtResource("4_e62um")
+radius = 0.01
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c1kil"]
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7c587"]
+radius = 1.25
+
+[sub_resource type="Animation" id="Animation_acr5u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TabContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TabContainer:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.71239]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": ["Open Shop"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TabContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_emn24"]
+resource_name = "begin"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aakx1"]
+resource_name = "open"
+length = 0.2
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TabContainer:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TabContainer:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [4.71239, 3.14159, 1.5708, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Open Shop", "Open Sho", "Open Sh", "Open S", "Open ", "Open", "Ope", "Op", "O", ""]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.18, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TabContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rd52e"]
+_data = {
+"RESET": SubResource("Animation_acr5u"),
+"begin": SubResource("Animation_emn24"),
+"open": SubResource("Animation_aakx1")
+}
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_i0xk2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("CapsuleShape3D_puhrx")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+spring_length = 3.0
+margin = 0.2
+script = ExtResource("2_xgx5g")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+
+[node name="Character" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(-4.37114e-08, 1, -2.98023e-08, 0, 2.98023e-08, 1, 1, 4.37114e-08, -1.3027e-15, -0.038345, 0.199692, 0)
+mesh = SubResource("SphereMesh_rdqgt")
+skeleton = NodePath("../../SpringArm3D")
+
+[node name="Head" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(-4.37114e-08, 1, -2.98023e-08, 0, 2.98023e-08, 1, 1, 4.37114e-08, -1.3027e-15, -0.327025, 0.295206, 0)
+mesh = SubResource("SphereMesh_c5imd")
+skeleton = NodePath("../../SpringArm3D")
+
+[node name="Snout" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(-4.37114e-08, 1, -2.98023e-08, 0, 2.98023e-08, 1, 1, 4.37114e-08, -1.3027e-15, -0.394326, 0.248638, 0)
+mesh = SubResource("SphereMesh_7407t")
+skeleton = NodePath("../../SpringArm3D")
+
+[node name="RE" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(-4.37114e-08, 1, -2.98023e-08, 0, 2.98023e-08, 1, 1, 4.37114e-08, -1.3027e-15, -0.302, 0.275189, -0.0513753)
+mesh = SubResource("SphereMesh_unlw8")
+skeleton = NodePath("../../SpringArm3D")
+
+[node name="LE" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(-4.37114e-08, 1, -2.98023e-08, 0, 2.98023e-08, 1, 1, 4.37114e-08, -1.3027e-15, -0.30168, 0.275369, 0.051)
+mesh = SubResource("SphereMesh_unlw8")
+skeleton = NodePath("../../SpringArm3D")
+
+[node name="FRL" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(1.91069e-15, -7.35137e-08, -1, -4.37114e-08, 1, -7.35137e-08, 1, 4.37114e-08, -1.3027e-15, -0.135, 0.12248, -0.05)
+mesh = SubResource("SphereMesh_q3ruf")
+skeleton = NodePath("../../SpringArm3D")
+
+[node name="FLL" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(1.91069e-15, -7.35137e-08, -1, -4.37114e-08, 1, -7.35137e-08, 1, 4.37114e-08, -1.3027e-15, -0.135, 0.12248, 0.05)
+mesh = SubResource("SphereMesh_q3ruf")
+skeleton = NodePath("../../SpringArm3D")
+
+[node name="BRL" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(1.91069e-15, -7.35137e-08, -1, -4.37114e-08, 1, -7.35137e-08, 1, 4.37114e-08, -1.3027e-15, 0.1, 0.12248, -0.05)
+mesh = SubResource("SphereMesh_q3ruf")
+skeleton = NodePath("../../SpringArm3D")
+
+[node name="BLL" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(1.91069e-15, -7.35137e-08, -1, -4.37114e-08, 1, -7.35137e-08, 1, 4.37114e-08, -1.3027e-15, 0.1, 0.12248, 0.05)
+mesh = SubResource("SphereMesh_q3ruf")
+skeleton = NodePath("../../SpringArm3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(0.464069, 0.885799, 0, -0.885799, 0.464069, 0, 0, 0, 1, 0.277019, 0.274978, 0)
+mesh = SubResource("CapsuleMesh_043ak")
+
+[node name="Area3D" type="Area3D" parent="Character"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("SphereShape3D_c1kil")
+
+[node name="Booty" type="Node3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.193, 0)
+
+[node name="Magnet" type="Area3D" parent="Character"]
+visible = false
+monitoring = false
+monitorable = false
+
+[node name="Mag" type="MeshInstance3D" parent="Character/Magnet"]
+transform = Transform3D(0.0258819, -3.2398e-09, 0.0965926, -0.0965926, -4.2222e-09, 0.0258819, 3.2398e-09, -0.1, -4.2222e-09, -0.45, 0.22, 0)
+mesh = ExtResource("6_f4l8k")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character/Magnet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+shape = SubResource("SphereShape3D_7c587")
+
+[node name="Poop Timer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("6_15a5g")
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.486
+anchor_top = 0.5
+anchor_right = 0.514
+anchor_bottom = 0.5
+offset_left = -175.872
+offset_top = -132.0
+offset_right = 175.872
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 4.71239
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(193, 128)
+tab_alignment = 1
+
+[node name="Shop" type="VBoxContainer" parent="CanvasLayer/Control/TabContainer"]
+layout_mode = 2
+
+[node name="Speed" type="Button" parent="CanvasLayer/Control/TabContainer/Shop"]
+layout_mode = 2
+text = "Upgrade Speed - 5"
+script = ExtResource("7_57r7o")
+
+[node name="Multi" type="Button" parent="CanvasLayer/Control/TabContainer/Shop"]
+layout_mode = 2
+text = "Upgrade Multi - 20"
+script = ExtResource("7_57r7o")
+cost = 20
+costexp = 2.0
+
+[node name="Hotdog Stands" type="Button" parent="CanvasLayer/Control/TabContainer/Shop"]
+layout_mode = 2
+text = "Upgrade Hotdog Stands - 5"
+script = ExtResource("7_57r7o")
+costexp = 1.2
+max = 50
+
+[node name="Pizzarias" type="Button" parent="CanvasLayer/Control/TabContainer/Shop"]
+layout_mode = 2
+text = "Upgrade Pizzarias - 5"
+script = ExtResource("7_57r7o")
+costexp = 1.2
+max = 50
+
+[node name="KFCs" type="Button" parent="CanvasLayer/Control/TabContainer/Shop"]
+layout_mode = 2
+text = "Upgrade KFCs - 10"
+script = ExtResource("7_57r7o")
+cost = 10
+costexp = 1.2
+max = 50
+
+[node name="Magnet" type="Button" parent="CanvasLayer/Control/TabContainer/Shop"]
+layout_mode = 2
+text = "Upgrade Magnet - 500"
+script = ExtResource("7_57r7o")
+cost = 500
+costexp = 1.0
+max = 1
+
+[node name="X" type="Control" parent="CanvasLayer/Control/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 32.0
+grow_horizontal = 2
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = 32.0
+offset_right = 16.0
+offset_bottom = 64.0
+grow_horizontal = 2
+text = "Chunga"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control"]
+libraries = {
+"": SubResource("AnimationLibrary_rd52e")
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Open Shop"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="area_entered" from="Character/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="Character/Magnet" to="." method="_on_magnet_area_entered"]
+[connection signal="timeout" from="Poop Timer" to="." method="_on_poop_timer_timeout"]
+[connection signal="tab_changed" from="CanvasLayer/Control/TabContainer" to="." method="_on_tab_container_tab_changed"]
+[connection signal="animation_finished" from="CanvasLayer/Control/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

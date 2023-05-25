@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4myvlrw8603w"]
+
+[ext_resource type="ArrayMesh" uid="uid://djdp5wgji8a1b" path="res://assets/hotdog.obj" id="1_v5ca3"]
+[ext_resource type="Texture2D" uid="uid://bl2hmniabelus" path="res://assets/hotdog.png" id="2_g437c"]
+[ext_resource type="Script" path="res://foodstuffs/food.gd" id="3_11svn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ryum4"]
+size = Vector3(0.25, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8coh"]
+albedo_texture = ExtResource("2_g437c")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4r62h"]
+radius = 0.2
+
+[node name="Hotdog" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ryum4")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("1_v5ca3")
+surface_material_override/0 = SubResource("StandardMaterial3D_h8coh")
+
+[node name="Collection" type="Area3D" parent="." groups=["food"]]
+script = ExtResource("3_11svn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collection"]
+shape = SubResource("SphereShape3D_4r62h")
+
+[node name="DespawnTimer" type="Timer" parent="Collection"]
+wait_time = 60.0
+autostart = true

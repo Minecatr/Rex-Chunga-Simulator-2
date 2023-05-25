@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d2hkj7rwtiawb"
+path="res://.godot/imported/Chunga_2023_map_v3_no_long_sand.obj-eb7f391a42d4cd728a74751fe29ea28f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Chunga_2023_map_v3_no_long_sand.obj-eb7f391a42d4cd728a74751fe29ea28f.mesh"]
+
+source_file="res://assets/Chunga_2023_map_v3_no_long_sand.obj"
+dest_files=["res://.godot/imported/Chunga_2023_map_v3_no_long_sand.obj-eb7f391a42d4cd728a74751fe29ea28f.mesh", "res://.godot/imported/Chunga_2023_map_v3_no_long_sand.obj-eb7f391a42d4cd728a74751fe29ea28f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

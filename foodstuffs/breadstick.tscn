@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2rlsnwj6b32m"]
+
+[ext_resource type="Script" path="res://foodstuffs/food.gd" id="1_wlqyi"]
+[ext_resource type="ArrayMesh" uid="uid://cn14f15su7m7q" path="res://assets/breadstick.obj" id="2_flp7q"]
+[ext_resource type="Texture2D" uid="uid://2mpifuk0o6d8" path="res://assets/breadstick_basket_0.png" id="2_jhbxg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ryum4"]
+size = Vector3(0.5, 0.1, 0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4r62h"]
+radius = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3ynw"]
+albedo_texture = ExtResource("2_jhbxg")
+roughness = 0.0
+
+[node name="Breadstick" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ryum4")
+
+[node name="Collection" type="Area3D" parent="." groups=["food"]]
+script = ExtResource("1_wlqyi")
+saturation = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collection"]
+shape = SubResource("SphereShape3D_4r62h")
+
+[node name="DespawnTimer" type="Timer" parent="Collection"]
+wait_time = 60.0
+autostart = true
+
+[node name="Breadstick" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-10, -0.02, -8.74228e-10, 0, -8.74228e-10, 0.02, -0.02, 8.74228e-10, 3.82137e-17, 0, 0, 0)
+mesh = ExtResource("2_flp7q")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_k3ynw")
+
+[connection signal="timeout" from="Collection/DespawnTimer" to="Collection" method="_on_despawn_timer_timeout"]

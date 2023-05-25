@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://0ljfntidgxxn"
+path="res://.godot/imported/chungakfc.obj-79fa64170ce9c99a0583d00d34287f97.mesh"
+
+[deps]
+
+files=["res://.godot/imported/chungakfc.obj-79fa64170ce9c99a0583d00d34287f97.mesh"]
+
+source_file="res://assets/chungakfc.obj"
+dest_files=["res://.godot/imported/chungakfc.obj-79fa64170ce9c99a0583d00d34287f97.mesh", "res://.godot/imported/chungakfc.obj-79fa64170ce9c99a0583d00d34287f97.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://uvy2tbk8r622"]
+
+[ext_resource type="ArrayMesh" uid="uid://ccls3nufljx46" path="res://assets/poop.obj" id="1_kvenq"]
+[ext_resource type="Script" path="res://foodstuffs/poop.gd" id="1_pe3eq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xy4jb"]
+radius = 0.08
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4r62h"]
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhx6o"]
+albedo_color = Color(0.411765, 0.247059, 0.145098, 1)
+
+[node name="Poop" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_xy4jb")
+
+[node name="Collection" type="Area3D" parent="." groups=["food", "poop"]]
+script = ExtResource("1_pe3eq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collection"]
+shape = SubResource("SphereShape3D_4r62h")
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("1_kvenq")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_fhx6o")
+
+[connection signal="area_entered" from="Collection" to="Collection" method="_on_area_entered"]

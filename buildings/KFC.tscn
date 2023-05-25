@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ipx6wcxl5j6h"]
+
+[ext_resource type="ArrayMesh" uid="uid://0ljfntidgxxn" path="res://assets/chungakfc.obj" id="1_y8rey"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycc07"]
+size = Vector3(9, 4, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nksr"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nkahb"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[node name="KFC" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
+shape = SubResource("BoxShape3D_ycc07")
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.4, -2)
+
+[node name="Chungakfc" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
+mesh = ExtResource("1_y8rey")
+surface_material_override/3 = SubResource("StandardMaterial3D_3nksr")
+surface_material_override/4 = SubResource("StandardMaterial3D_nkahb")

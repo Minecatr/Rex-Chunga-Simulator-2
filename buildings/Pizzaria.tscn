@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://sy2e32cqc3uw"]
+
+[ext_resource type="ArrayMesh" uid="uid://74b1usj6vwdx" path="res://assets/chunga_small_seizures_pizza_place.obj" id="1_217f0"]
+[ext_resource type="Texture2D" uid="uid://pn5a5k4ihjd8" path="res://assets/chunga_small_seizures_Normal.png" id="2_kmp6w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycc07"]
+size = Vector3(4, 3, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tufm"]
+albedo_texture = ExtResource("2_kmp6w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqiou"]
+albedo_color = Color(0.258824, 0.258824, 0.258824, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fsv82"]
+albedo_color = Color(0.870588, 0.74902, 0.682353, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd2ll"]
+albedo_color = Color(1, 0.278431, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.278431, 0, 1)
+
+[node name="Pizzaria" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_ycc07")
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.4, 0)
+
+[node name="ChungaSmallSeizuresPizzaPlace" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
+mesh = ExtResource("1_217f0")
+surface_material_override/0 = SubResource("StandardMaterial3D_1tufm")
+surface_material_override/1 = SubResource("StandardMaterial3D_tqiou")
+surface_material_override/2 = SubResource("StandardMaterial3D_fsv82")
+surface_material_override/3 = SubResource("StandardMaterial3D_wd2ll")

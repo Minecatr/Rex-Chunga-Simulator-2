@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://6feja1bod2xa"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_bg4hu"]
+subdivide_width = 200
+subdivide_depth = 200
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdb2o"]
+transparency = 1
+blend_mode = 3
+albedo_color = Color(0.545098, 0.713726, 0.952941, 0.752941)
+roughness = 0.2
+fixed_size = true
+
+[node name="WaterPlane" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_bg4hu")
+surface_material_override/0 = SubResource("StandardMaterial3D_pdb2o")
